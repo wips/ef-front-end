@@ -1,4 +1,41 @@
 {
-    "name": "ef-test-front-end",
-    "version": "0.0.1"
+    "name": "ef-front-end",
+    "version": "0.0.0",
+    "dependencies": {
+        "coffee-script": "~1.6.x",
+        "hbs": "~2.3.x"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.x",
+        "grunt-contrib-watch": "~0.5.x",
+        "grunt-coffee-coverage": "~0.1.x",
+        "grunt-mocha": "~0.4.x",
+        "grunt-mocha-phantomjs": "~0.3.x",
+        "grunt-mocha-browser": "~0.0.x",
+        "load-grunt-tasks": "~0.1.x",
+        "connect-livereload": "~0.2.0",
+        "time-grunt": "~0.1.x",
+        "grunt-contrib-copy": "~0.4.x",
+        "grunt-contrib-concat": "~0.1.x",
+        "grunt-contrib-coffee": "~0.4.x",
+        "grunt-contrib-uglify": "~0.1.x",
+        "grunt-contrib-cssmin": "~0.4.x",
+        "grunt-contrib-connect": "~0.1.x",
+        "grunt-contrib-clean": "~0.4.x",
+        "grunt-contrib-htmlmin": "~0.1.x",
+        "grunt-contrib-imagemin": "~0.1.x",
+        "grunt-contrib-requirejs": "~0.4.x",
+        "grunt-scriptlinker": "~0.1.x",
+        "grunt-usemin": "~0.1.x",
+        "grunt-recess": "~0.3.x",
+        "grunt-open": "~0.2.x",
+        "grunt-rev": "~0.1.x",
+        "grunt-contrib-handlebars": "~0.5.x",
+        "grunt-contrib-jst": "~0.5.x",
+        "phantomjs": "~1.9.x",
+        "chai": "~1.7.x"
+    },
+    "engines": {
+        "node": ">=0.8.0"
+    }
 }
