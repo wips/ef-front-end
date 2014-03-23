@@ -6,9 +6,13 @@ define (require) ->
 
   class ApplicationView extends Backbone.View
     template: templates.images
+
     initialize: ->
       @imageCollection = Object.create(ImagesCollection::)
       @imageCollection.constructor()
-    render: ->
-      @.$el.html @template()
       @imageCollection.fetch()
+      @listenTo @imageCollection, 'sync', @render
+
+    render: ->
+      @$el.html @template()
+

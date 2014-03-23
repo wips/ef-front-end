@@ -8,19 +8,20 @@ define (require) ->
     create = null
 
     beforeEach ->
-      sut = new ImagesView
+#      sut = new ImagesView
 
-    it 'should load data after render', ->
-      sut.imageCollection = fetch: env.stub()
-      sut.render()
-      sut.imageCollection.fetch.should.have.been.called
+    describe 'render', ->
 
     describe 'initialize', ->
       instance = null
+      listenTo = null
 
       beforeEach ->
-        instance = constructor: env.stub()
+        instance =
+          constructor: env.stub()
+          fetch: env.stub()
         env.stub(Object, 'create').withArgs(ImagesCollection::).returns instance
+        listenTo = env.stub ImagesView::, 'listenTo'
         sut = new ImagesView
         Object.create.restore()
 
@@ -29,3 +30,9 @@ define (require) ->
 
       it 'should has link to images collection', ->
         instance.constructor.should.have.been.called
+
+      it 'should load data', ->
+        instance.fetch.should.have.been.called
+
+      it 'should render itsef on data fetch', ->
+        listenTo.should.have.been.calledWith instance, 'sync', sut.render
