@@ -116,6 +116,7 @@ module.exports = (grunt) ->
               lrSnippet
               mountFolder(connect, yeomanConfig.tmp)
               mountFolder(connect, yeomanConfig.app)
+              mountFolder(connect, yeomanConfig.app + 'components/bootstrap/dist')
             ]
 
       test:
@@ -234,9 +235,22 @@ module.exports = (grunt) ->
           dot: true
           cwd: yeomanConfig.app
           dest: yeomanConfig.dist
-          src: ["*.{ico,txt}", ".htaccess", "images/**/*.{webp,gif}", "styles/fonts/*"]
-        ]
+          src: [
+            "*.{ico,txt}"
+            ".htaccess"
+            "images/**/*.{webp,gif}"
+            "styles/fonts/*"
 
+          ]
+        ]
+      bootstrap_fonts:
+        files: [
+          expand: true
+          dot: true
+          cwd: yeomanConfig.app + 'components/bootstrap/dist/fonts'
+          dest: yeomanConfig.dist + 'fonts'
+          src: "*"
+        ]
       tests:
         files: [
           expand: true
@@ -285,36 +299,13 @@ module.exports = (grunt) ->
         path: "<%= yeoman.app %>/scripts"
       '.tmp/scripts': "<%= yeoman.app %>/scripts"
 
-    cucumberjs:
-      wip:
-        files: [
-          src: '<%= yeoman.features %>'
-        ]
-        options:
-          steps: "<%= yeoman.features %>step_definitions"
-          tags: "@wip"
-      done:
-        files: [
-          src: '<%= yeoman.features %>'
-        ]
-        options:
-          steps: "<%= yeoman.features %>step_definitions"
-          tags: "@done"
-      all:
-        files: [
-          src: '<%= yeoman.features %>'
-        ]
-        options:
-          steps: "<%= yeoman.features %>step_definitions"
-
-
   grunt.registerTask "server", (target) ->
     if target is "dist"
-      grunt.task.run([
+      grunt.task.run [
         "build"
         "open"
         "connect:dist:keepalive"
-      ])
+      ]
     else
       grunt.task.run [
         "clean:server"
@@ -340,17 +331,6 @@ module.exports = (grunt) ->
     "connect:test"
     "mocha_phantomjs"
     "mocha_browser"
-  ]
-
-  grunt.registerTask "e2e", [
-    "clean:server"
-    "coffeeCoverage"
-    "coffee:test"
-    "copy:tests"
-    "scriptlinker"
-    "handlebars" # use "jst" if you don't use handlebars templates
-    "connect:test"
-    "cucumberjs:done"
   ]
 
   grunt.registerTask "build", [

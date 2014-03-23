@@ -9,4 +9,4 @@ define (require) ->
       sut = new ImagesCollection
 
     it 'should have url', ->
-      ImagesCollection::url.should.equal '/index.php/images'
+      ImagesCollection::url.should.equal '/index.php/images.json'

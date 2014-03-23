@@ -10,7 +10,7 @@ define (require) ->
     initialize: ->
       @imageCollection = Object.create(ImagesCollection::)
       @imageCollection.constructor()
-      @imageCollection.fetch()
+      @imageCollection.fetch() # method: 'POST'
       @listenTo @imageCollection, 'sync', @render
 
     render: =>

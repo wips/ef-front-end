@@ -22,12 +22,12 @@ define (require) ->
       it 'should pass data to template', ->
         env.stub sut, 'template'
         sut.render()
-        sut.template.should.have.been.calledWith sinon.match(images: instance)
+        sut.template.should.have.been.calledWith sinon.match images: instance
 
       it 'should update HTML', ->
         html = 'some markup'
         env.stub(sut.$el, 'html')
-        env.stub(sut, 'template').withArgs(sinon.match(images: instance)).returns html
+        env.stub(sut, 'template').withArgs(sinon.match images: instance).returns html
         sut.render()
         sut.$el.html.should.have.been.calledWith html
 
@@ -41,6 +41,7 @@ define (require) ->
 
       it 'should load data', ->
         instance.fetch.should.have.been.called
+        #With sinon.match method: 'POST'
 
       it 'should render itsef on data fetch', ->
         listenTo.should.have.been.calledWith instance, 'sync', sut.render
