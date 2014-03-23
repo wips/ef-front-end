@@ -1,7 +1,7 @@
 require.config
   baseUrl: "../scripts/"
   paths:
-    jquery: "../components/jquery/jquery"
+    jquery: "../components/jquery/dist/jquery"
     handlebars: "../components/handlebars/handlebars"
     underscore: "../components/underscore/underscore"
     backbone: "../components/backbone/backbone"

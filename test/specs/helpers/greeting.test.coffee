@@ -1,8 +1,8 @@
 define (require) ->
 
-  Greeting = require "helpers/greeting"
+#  Greeting = require "helpers/greeting"
 
-  describe "Greeting Helper", ->
+  xdescribe "Greeting Helper", ->
     sut = null
 
     beforeEach ->

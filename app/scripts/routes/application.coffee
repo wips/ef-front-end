@@ -1,7 +1,7 @@
 define (require) ->
 
   Backbone = require 'backbone'
-  ApplicationView = require 'views/application'
+  ImagesView = require 'views/images'
 
   class ApplicationRouter extends Backbone.Router
 
@@ -9,5 +9,5 @@ define (require) ->
       '*path': 'defaultRoute'
 
     defaultRoute: ->
-      @view = new ApplicationView()
+      @view = new ImagesView()
       $('#main').html @view.render()

@@ -4,7 +4,7 @@ define (require) ->
   templates = require 'templates'
 
   class ApplicationView extends Backbone.View
-    template: templates.application
+    template: templates.images
     render: ->
-      alert 9
       @.$el.html @template()
+      @imageCollection.fetch()

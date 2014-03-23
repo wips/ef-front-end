@@ -1,7 +1,7 @@
 define (require) ->
 
   Backbone = require 'backbone'
-  Application = require 'models/application'
+  Images = require 'models/images'
 
-  class ApplicationsCollection extends Backbone.Collection
-    model: Application
+  class ImagesCollection extends Backbone.Collection
+    model: Images
