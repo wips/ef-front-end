@@ -13,6 +13,6 @@ define (require) ->
       @imageCollection.fetch()
       @listenTo @imageCollection, 'sync', @render
 
-    render: ->
-      @$el.html @template()
+    render: =>
+      @$el.html @template images: @imageCollection
 
