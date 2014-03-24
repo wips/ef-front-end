@@ -50,3 +50,8 @@ beforeEach ->
 afterEach ->
   env.restore()
 
+usingValuesIt = (assumption, values, func) ->
+  for parameters in values
+    parameters = [parameters] if "[object Array]" isnt Object::toString.call parameters
+    it "#{assumption} with #{parameters}", -> func.apply @, parameters
+

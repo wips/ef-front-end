@@ -1,19 +1,19 @@
-<h1>Scrabbed images</h1>
+<h1>Scraped images</h1>
 <table class="table table-striped table-hover table-responsive">
-    <thead>
-        <tr>
-            <form>
+    <form action="#">
+        <thead>
+            <tr>
                 <th><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-filter"></span></button></th>
-                <th><input class="form-control" type="text" placeholder="Title" name="title"></th>
-                <th><input class="form-control" type="text" placeholder="User Id" name="user"></th>
-                <th><input class="form-control" type="text" placeholder="Width" name="width"></th>
-                <th><input class="form-control" type="text" placeholder="Height" name="height"></th>
-            </form>
-        </tr>
-    </thead>
+                <th><input class="form-control" type="text" placeholder="Title" name="title" value="{{images.title}}"></th>
+                <th><input class="form-control" type="text" placeholder="User Id" name="user" value="{{images.user}}"></th>
+                <th><input class="form-control" type="text" placeholder="Width" name="width" value="{{images.width}}"></th>
+                <th><input class="form-control" type="text" placeholder="Height" name="height" value="{{images.height}}"></th>
+            </tr>
+        </thead>
+    </form>
     <tbody>
         {{#each images.models}}
-            <tr>
+            <tr class="data">
                 <td>{{@index}}</td>
                 <td>
                     <a href="{{this.attributes.url}}" target="_blank">
@@ -29,8 +29,8 @@
                 <td colspan="5">Nothing has been found. We're very sorry about that :(</td>
             </tr>
         {{/each}}
-        <!--<tr class="info">-->
-            <!--<td colspan="5">Loading...</td>-->
-        <!--</tr>-->
+        <tr class="loading">
+            <td colspan="5">Loading...</td>
+        </tr>
     </tbody>
 </table>
