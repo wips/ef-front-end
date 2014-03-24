@@ -323,6 +323,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask "test", [
     "clean:server"
+    "coffee"
     "coffeeCoverage"
     "coffee:test"
     "copy:tests"
