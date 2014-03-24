@@ -5,6 +5,9 @@
         "coffee-script": "~1.6.x",
         "hbs": "~2.3.x"
     },
+    "scripts": {
+        "test": "grunt test --verbose"
+    },
     "devDependencies": {
         "grunt": "~0.4.x",
         "grunt-contrib-watch": "~0.5.x",

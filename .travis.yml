@@ -1,7 +1,10 @@
 language: node_js
 
-php:
+node_js:
   - 0.10
+
+before_install:
+  - phantomjs --version
 
 install:
   - npm install -g grunt-cli
