@@ -6,9 +6,5 @@ node_js:
 before_install:
   - phantomjs --version
 
-install:
+before_script:
   - npm install -g grunt-cli
-  - npm install
-
-script:
-  - grunt test
